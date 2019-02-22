@@ -832,7 +832,7 @@ extension TabBarContentViewController: UITextViewDelegate {
         // FloatingPanel can implicity reset it with KVO of `scrollView.contentOffset`
         // but it causes a crash because it leads to an infinit loop when a user
         // resets a content offset as below.
-        if fpc.position != .full {
+        if fpc.position != .full, fpc.surfaceView.frame.minY > fpc.originYOfSurface(for: .full)  {
             scrollView.contentOffset = .zero
         }
     }
