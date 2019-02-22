@@ -351,7 +351,7 @@ class FloatingPanel: NSObject, UIGestureRecognizerDelegate, UIScrollViewDelegate
         log.debug("ScrollView.contentOffset >>>", scrollView.contentOffset.y)
 
         let offset = scrollView.contentOffset.y - scrollView.contentOffsetZero.y
-        if  abs(offset) > offsetThreshold {
+        if  abs(offset) != 0 {
             return true
         }
         if scrollView.isDecelerating {
